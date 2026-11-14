@@ -462,11 +462,7 @@ footer a{color:#b9ad93}
 (function () {
   var reduzMovimento = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Rastreia cliques no CTA (evento padrão InitiateCheckout, não é Purchase)
-  document.addEventListener('click', function (e) {
-    var a = e.target.closest && e.target.closest('[data-cta]');
-    if (a && window.fbq) { try { fbq('track', 'InitiateCheckout'); } catch (err) {} }
-  });
+  // InitiateCheckout vem só da Kiwify (ver kiwify-configuracao.md). Não disparar aqui, para não contar duas vezes.
 
   // 1) Exercício de respiração 4-6, 2 ciclos (20 segundos)
   var btn = document.getElementById('resp-btn');
